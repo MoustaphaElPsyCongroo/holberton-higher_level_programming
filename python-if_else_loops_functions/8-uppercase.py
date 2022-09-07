@@ -5,8 +5,8 @@ def uppercase(str):
 
     for c in str:
         ordc = ord(c)
-        if ordc >= 97 and ordc <= 122:
+        if ordc in range(97, 123):
             strupp += (chr(ordc - 32))
         else:
             strupp += c
-    print(strupp)
+    print("{}".format(strupp))
