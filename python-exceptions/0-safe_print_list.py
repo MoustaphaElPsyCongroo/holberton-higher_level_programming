@@ -2,6 +2,7 @@
 def safe_print_list(my_list=[], x=0):
     try:
         if x == 0:
+            print("")
             return 0
         for i, e in enumerate(my_list):
             print(e, end='')
