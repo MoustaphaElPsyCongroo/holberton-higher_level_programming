@@ -54,13 +54,14 @@ class Square:
         """Prints the square"""
         if self.__size == 0:
             print("")
-        for p in range(self.__position[1]):
-            print("")
-        for j in range(self.__size):
-            for k in range(self.__position[0]):
-                print(" ", end="")
-            for i in range(self.__size):
-                if i == self.__size - 1:
-                    print("#")
-                else:
-                    print("#", end="")
+        else:
+            for p in range(self.__position[1]):
+                print("")
+            for j in range(self.__size):
+                for k in range(self.__position[0]):
+                    print(" ", end="")
+                for i in range(self.__size):
+                    if i == self.__size - 1:
+                        print("#")
+                    else:
+                        print("#", end="")
