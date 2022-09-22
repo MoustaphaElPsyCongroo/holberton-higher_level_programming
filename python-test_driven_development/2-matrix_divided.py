@@ -39,7 +39,7 @@ def matrix_divided(matrix, div):
         for elem in li:
             if not isinstance(elem, (int, float)):
                 raise TypeError("matrix must be\
-                     a matrix (list of lists) of integers/floats")
+ a matrix (list of lists) of integers/floats")
             inner.append(round(elem / div, 2))
         result.append(inner)
     return result
