@@ -34,6 +34,10 @@ a or b None:
 	TypeError: b must be an integer
 
 missing one argument:
+	>>> add_integer(2)
+	100
+
+missing two arguments:
 	>>> add_integer()
 	Traceback (most recent call last):
 	...
