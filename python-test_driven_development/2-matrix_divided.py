@@ -2,9 +2,6 @@
 """Divides all elements of a matrix"""
 
 
-from typing import Type
-
-
 def matrix_divided(matrix, div):
     """
     Divides all elements of a matrix
