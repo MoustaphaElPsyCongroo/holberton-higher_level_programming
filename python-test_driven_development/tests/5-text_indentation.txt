@@ -1,0 +1,22 @@
+Prints a text with 2 new lines after each of these characters: . ? and :
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Normal case:
+	>>> text_indentation("Print. This: or not?")
+	Print.
+	<BLANKLINE>
+	This:
+	<BLANKLINE>
+	or not?
+
+text not string:
+	>>> text_indentation(2)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+missing argument:
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
