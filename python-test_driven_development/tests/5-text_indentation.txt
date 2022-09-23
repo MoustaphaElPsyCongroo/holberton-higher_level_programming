@@ -8,6 +8,7 @@ Normal case:
 	This:
 	<BLANKLINE>
 	or not?
+	<BLANKLINE>
 
 text not string:
 	>>> text_indentation(2)
