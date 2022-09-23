@@ -5,8 +5,9 @@
 def text_indentation(text):
     """
     Prints a text with 2 newlines after each of these characters: . ? :
+    There should be no space at the beginning or end of each printed line
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    print(text.replace('. ', '.\n\n').replace(
-        '? ', '?\n\n').replace(': ', ':\n\n'), end="")
+    print(" ".join(text.split()).replace('.', '.\n\n').replace(
+        '?', '?\n\n').replace(':', ':\n\n').replace("\n ", "\n"), end="")
