@@ -11,6 +11,11 @@ first_name or last_name not strings:
 	...
 	TypeError: first_name must be a string
 
+	>>> say_my_name("Moustapha", 1)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
 missing one argument:
 	>>> say_my_name()
 	Traceback (most recent call last):
