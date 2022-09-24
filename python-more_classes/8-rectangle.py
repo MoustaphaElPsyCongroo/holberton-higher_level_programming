@@ -2,9 +2,6 @@
 "Creates a Rectangle class"
 
 
-from readline import insert_text
-
-
 class Rectangle:
     "Creates a Rectangle class"
     number_of_instances = 0
