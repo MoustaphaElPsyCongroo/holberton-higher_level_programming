@@ -14,6 +14,12 @@ Normal case:
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
 
+Check if returns a new list:
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> my_list
+	[1, 4, 2, 3, 5]
+
 Sorting, highest on start:
 	>>> my_list[0] = 5
 	>>> my_list.print_sorted()
@@ -45,10 +51,3 @@ Sorting too many arguments:
 	...
 	TypeError: print_sorted() takes 1 positional argument but 2 were given
 
-print_sorted should not return a new list:
-	>>> t = my_list.print_sorted()
-	[]
-	>>> my_list
-	[]
-	>>> t == my_list
-	False
