@@ -1,6 +1,21 @@
 Validate BaseGeometry integer_validator(self, name, value) instance method:
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+check instantiation:
+	>>> bg = BaseGeometry()
+	>>> isinstance(bg, BaseGeometry)
+	True
+
+test area method not implemented:
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+normal case: value an integer:
+	>>> bg.integer_validator("name", 12)
+	>>>
+
 value not an integer:
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("name", "12")
@@ -8,9 +23,14 @@ value not an integer:
 	...
 	TypeError: name must be an integer
 
-value less or equal to 0:
+value less than 0:
 	>>> bg.integer_validator("name", -12)
 	Traceback (most recent call last):
+	...
+	ValueError: name must be greater than 0
+
+value equals 0:
+	>>> bg.integer_validator("name", 0)
 	...
 	ValueError: name must be greater than 0
 
@@ -18,12 +38,10 @@ missing one argument:
 	>>> bg.integer_validator("name")
 	Traceback (most recent call last):
 	...
-	TypeError: integer_validator() missing 1 required positional argument:
-	'value'
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 missing two arguments:
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 	...
-	TypeError: integer_validator() missing 2 required positional arguments:
-	'name' and 'value'
+	TypeError: integer_validator() missing 2 required positional arguments:	'name' and 'value'
