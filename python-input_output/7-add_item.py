@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"Saves all arguments of this script to a file"
+"""Saves all arguments of this script to a file"""
 from sys import argv
-import json
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
