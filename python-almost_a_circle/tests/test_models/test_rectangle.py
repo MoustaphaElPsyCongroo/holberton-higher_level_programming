@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 "Unit tests for Rectangle class"
 import unittest
+from unittest import mock
+import io
 from models.rectangle import Rectangle
 
 
@@ -47,6 +49,22 @@ class TestRectangle(unittest.TestCase):
         "Tests if Rectangle's area() exists and returns the right value"
         r = Rectangle(3, 2)
         self.assertEqual(r.area(), 6)
+
+    def test_display(self):
+        "Tests if Rectangle's display() exists and prints right value"
+        # Test for no y
+        r = Rectangle(3, 2, 1, 0)
+        with mock.patch("sys.stdout", new=io.StringIO()) as mocked_stdout:
+            r.display()
+
+        assert mocked_stdout.getvalue() == " ###\n ###\n"
+
+        # Test for neither x nor y
+        r = Rectangle(3, 2, 0, 0)
+        with mock.patch("sys.stdout", new=io.StringIO()) as mocked_stdout:
+            r.display()
+
+        assert mocked_stdout.getvalue() == "###\n###\n"
 
     def test_str(self):
         "Tests if Rectangle's str representation exists and has right format"

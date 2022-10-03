@@ -78,9 +78,16 @@ class Rectangle(Base):
 
     def display(self):
         "Prints a Rectangle instance"
-        for i in range(self.__height):
-            for j in range(self.__width):
-                if j < self.__width - 1:
-                    print("#", end="")
-                else:
-                    print("#")
+        if self.area() == 0:
+            print("")
+        else:
+            for a in range(self.__y):
+                print("")
+            for i in range(self.__height):
+                for k in range(self.__x):
+                    print(" ", end="")
+                for j in range(self.__width):
+                    if j < self.__width - 1:
+                        print("#", end="")
+                    else:
+                        print("#")
