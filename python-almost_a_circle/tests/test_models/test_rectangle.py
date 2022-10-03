@@ -44,9 +44,14 @@ class TestRectangle(unittest.TestCase):
             ValueError, "y must be >= 0", Rectangle, 1, 2, 3, -4)
 
     def test_area(self):
-        "Test if Rectangle's area() exists and returns the right value"
+        "Tests if Rectangle's area() exists and returns the right value"
         r = Rectangle(3, 2)
         self.assertEqual(r.area(), 6)
+
+    def test_str(self):
+        "Tests if Rectangle's str representation exists and has right format"
+        r = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
 
 
 if __name__ == "__main__":
