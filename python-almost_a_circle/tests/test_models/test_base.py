@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b.id, 5)
 
     def test_autoId(self):
-        "Test of Base for automatically assigning an id"
+        "Test of Base for automatically assigning and incrementing an id"
         b = Base()
         self.assertEqual(b.id, 1)
 
