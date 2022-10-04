@@ -26,6 +26,7 @@ class Square(Rectangle):
         self.width = self.height = value
 
     def update(self, *args, **kwargs):
+        "Updates a Square instance"
         if args is not None and len(args) > 0:
             attrs = ("id", "size", "x", "y")
             for i, value in enumerate(args):
