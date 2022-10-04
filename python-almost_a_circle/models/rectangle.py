@@ -112,3 +112,8 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 if key != "id":
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+        "Gets the dictionary representation of a Rectangle instance"
+        return {key.replace("_Rectangle__", ""): value
+                for key, value in self.__dict__.items()}
