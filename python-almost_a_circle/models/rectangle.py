@@ -93,6 +93,7 @@ class Rectangle(Base):
                         print("#")
 
     def update(self, *args):
+        "Updates a Rectangle instance"
         for i, arg in enumerate(args):
             if i == 0:
                 super().__init__(arg)
