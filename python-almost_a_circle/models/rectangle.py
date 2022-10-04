@@ -91,3 +91,16 @@ class Rectangle(Base):
                         print("#", end="")
                     else:
                         print("#")
+
+    def update(self, *args):
+        for i, arg in enumerate(args):
+            if i == 0:
+                super().__init__(arg)
+            if i == 1:
+                self.__width = arg
+            if i == 2:
+                self.__height = arg
+            if i == 3:
+                self.__x = arg
+            if i == 4:
+                self.__y = arg

@@ -27,14 +27,6 @@ class TestBase(unittest.TestCase):
         b = Base("string")
         self.assertEqual(b.id, "string")
 
-    def test_id_mix(self):
-        """Test number object attribute and assigned id"""
-        b = Base()
-        b2 = Base(1024)
-        b3 = Base()
-        self.assertEqual(b.id, 1)
-        self.assertEqual(b2.id, 1024)
-        self.assertEqual(b3.id, 2)
 
 if __name__ == "__main__":
     unittest.main()
