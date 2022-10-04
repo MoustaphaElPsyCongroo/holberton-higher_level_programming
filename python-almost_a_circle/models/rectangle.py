@@ -92,16 +92,23 @@ class Rectangle(Base):
                     else:
                         print("#")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         "Updates a Rectangle instance"
-        for i, arg in enumerate(args):
-            if i == 0:
-                super().__init__(arg)
-            if i == 1:
-                self.__width = arg
-            if i == 2:
-                self.__height = arg
-            if i == 3:
-                self.__x = arg
-            if i == 4:
-                self.__y = arg
+        if args is not None and len(args) > 0:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    super().__init__(arg)
+                if i == 1:
+                    self.width = arg
+                if i == 2:
+                    self.height = arg
+                if i == 3:
+                    self.x = arg
+                if i == 4:
+                    self.y = arg
+        elif kwargs is not None:
+            if "id" in kwargs:
+                super().__init__(kwargs["id"])
+            for key, value in kwargs.items():
+                if key != "id":
+                    setattr(self, key, value)
