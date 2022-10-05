@@ -35,3 +35,10 @@ class Base:
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def create(cls, **dictionary):
+        "Returns an instance of any Base subclass with all attributes set"
+        inst = cls(10, 10)
+        inst.update(**dictionary)
+        return inst
