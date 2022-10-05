@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 "Initializes the Base class"
+import json
 
 
 class Base:
@@ -12,3 +13,9 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        "Returns the JSON string representation of a list of dictionaries"
+        if not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
