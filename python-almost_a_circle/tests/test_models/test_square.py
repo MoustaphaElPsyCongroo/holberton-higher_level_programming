@@ -3,6 +3,7 @@
 import unittest
 from unittest import mock
 import io
+import os
 from models.square import Square
 
 
@@ -37,12 +38,31 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             Square(1, 2, -3)
 
-        with self.assertRaises(ValueError):
-            Square(0)
+    def test_dictionary(self):
+        s1 = Square(10, 2, 1, 1)
+        s1_dict = s1.to_dictionary()
+        self.assertEqual(s1_dict, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
+
+    def test_case_normal(self):
+        """Test of Square(1, 2, 3, 4) exists"""
+        s = Square(1, 2, 3, 4)
+        self.assertEqual(s.id, 4)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 3)
+
+    def test_load_from_file(self):
+        """Test of Square.save_to_file(None) in Square exists"""
+        Square.save_to_file(None)
+        self.assertTrue(os.path.isfile('Square.json'))
+
+        load_file = Square.load_from_file()
+        self.assertEqual(len(load_file), 0)
+
+        """Test of Square.save_to_file([]) in Square exists"""
 
     def test_area(self):
         """testing area"""
-
         s = Square(5)
         self.assertEqual(s.area(), 25)
 
@@ -78,6 +98,26 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.id, 89)
         self.assertEqual(s1.x, 2)
+
+    def test_created(self):
+        """Test of Square.create(**{ 'id': 89 }) in Square exists"""
+        s = Square.create(**{'id': 89})
+        self.assertEqual(s.id, 89)
+
+        s = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+
+        s = Square.create(**{'id': 89, 'size': 1, 'x': 2})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+
+        s = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
+        self.assertEqual(s.id, 89)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 3)
 
 
 if __name__ == "__main__":
