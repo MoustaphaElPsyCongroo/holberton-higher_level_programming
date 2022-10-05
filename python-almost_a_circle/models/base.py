@@ -23,18 +23,32 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        "Deserializes a JSON list of dictionaries"
         if not json_string:
             return []
         return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        "Serializes a list of instances to a JSON file"
         with open(f"{cls.__name__}.json", 'w', encoding='utf-8') as f:
             if not list_objs:
                 f.write("[]")
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def load_from_file(cls):
+        "Returns an instance list from a file storing a list of dictionaries"
+        list_inst = []
+        json_dicts = None
+        with open(f"{cls.__name__}.json", 'r', encoding='utf-8') as f:
+            json_dicts = f.read()
+        list_dicts = cls.from_json_string(json_dicts)
+        for dict in list_dicts:
+            list_inst.append(cls.create(**dict))
+        return list_inst
 
     @classmethod
     def create(cls, **dictionary):
