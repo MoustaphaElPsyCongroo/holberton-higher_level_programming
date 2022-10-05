@@ -17,11 +17,6 @@ class TestBase(unittest.TestCase):
         b = Base()
         self.assertEqual(b.id, 1)
 
-    def test_float_inf(self):
-        """Test of Base for input case float infinity"""
-        b = Base(float('inf'))
-        self.assertEqual((b.id, float('inf')))
-
     def test_string(self):
         """Test of Base for case input is string"""
         b = Base("string")
