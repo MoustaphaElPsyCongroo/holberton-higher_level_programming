@@ -4,7 +4,6 @@ import unittest
 from unittest import mock
 import io
 from models.square import Square
-from models.base import Base
 
 
 class TestSquare(unittest.TestCase):
