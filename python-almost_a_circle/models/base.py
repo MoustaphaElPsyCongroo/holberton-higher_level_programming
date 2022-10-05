@@ -21,6 +21,10 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    @staticmethod
+    def from_json_string(json_string):
+        return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         with open(f"{cls.__name__}.json", 'w', encoding='utf-8') as f:
