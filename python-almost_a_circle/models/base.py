@@ -39,6 +39,9 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         "Returns an instance of any Base subclass with all attributes set"
-        inst = cls(10, 10)
+        if cls.__name__ == "Square":
+            inst = cls(10)
+        else:
+            inst = cls(10, 10)
         inst.update(**dictionary)
         return inst
