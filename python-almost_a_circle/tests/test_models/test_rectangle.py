@@ -72,7 +72,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
 
     def test_update(self):
-        "Tests if Rectangle's update() exists and updates the right *args"
+        "Tests if Rectangle's update() exists and updates the right args"
         r = Rectangle(10, 20, 30, 40, 50)
         r.update(89, 1, 2, 3, 4)
         self.assertEqual(r.id, 89)

@@ -34,3 +34,10 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        "Gets the dictionary representation of a Square instance"
+        dic = super().to_dictionary()
+        dic['size'] = dic.pop("height")
+        dic.pop("width")
+        return dic
