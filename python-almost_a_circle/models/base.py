@@ -43,12 +43,16 @@ class Base:
         "Returns an instance list from a file storing a list of dictionaries"
         list_inst = []
         json_dicts = None
-        with open(f"{cls.__name__}.json", 'r', encoding='utf-8') as f:
-            json_dicts = f.read()
-        list_dicts = cls.from_json_string(json_dicts)
-        for dict in list_dicts:
-            list_inst.append(cls.create(**dict))
-        return list_inst
+
+        try:
+            with open(f"{cls.__name__}.json", 'r', encoding='utf-8') as f:
+                json_dicts = f.read()
+            list_dicts = cls.from_json_string(json_dicts)
+            for dict in list_dicts:
+                list_inst.append(cls.create(**dict))
+            return list_inst
+        except FileNotFoundError:
+            return list_inst
 
     @classmethod
     def create(cls, **dictionary):
