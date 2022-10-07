@@ -40,6 +40,9 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             Square(1, 2, -3)
 
+        with self.assertRaises(ValueError):
+            Square(0)
+
     def test_case_normal(self):
         """Test of Square(1, 2, 3, 4) exists"""
         s = Square(1, 2, 3, 4)
@@ -125,7 +128,29 @@ class TestSquare(unittest.TestCase):
         self.assertIs(os.path.exists("Square.json"), True)
         with open("Square.json", 'r') as file:
             self.assertEqual(json.loads(file.read()), json.loads('[]'))
-        os.remove("Square.json")    
+        os.remove("Square.json")
+
+    def test_load_from_file(self):
+        """Test of Square.load_from_file(None) in Square exists"""
+        Square.save_to_file(None)
+        self.assertTrue(os.path.isfile('Square.json'))
+
+        load_file = Square.load_from_file()
+        self.assertEqual(len(load_file), 0)
+
+    def test_save_to_file(self):
+        """Test of Square.save_to_file([Square(1)]) in Square exists"""
+        Square.save_to_file([Square(1)])
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(len(s), 39)
+
+    def test_save_to_file_list_empty(self):
+        """Test of Square.save_to_file([]) in Square exists"""
+        Square.save_to_file([])
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(s, "[]")
 
 
 if __name__ == "__main__":
