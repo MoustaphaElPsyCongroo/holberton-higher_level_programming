@@ -1,6 +1,6 @@
 -- Counts the number of shows by genre
 SELECT
-	tv_genres.name,
+	tv_genres.name AS genre,
 	count(tv_genres.name) AS number_of_shows
 FROM
 	tv_genres
