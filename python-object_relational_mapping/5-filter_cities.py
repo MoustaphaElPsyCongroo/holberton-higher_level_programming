@@ -26,7 +26,7 @@ if __name__ == "__main__":
     for result in results:
         for col in result:
             if i == len(results) - 1:
-                print(col, end="")
+                print(col)
             else:
                 print(col, end=", ")
             i += 1
