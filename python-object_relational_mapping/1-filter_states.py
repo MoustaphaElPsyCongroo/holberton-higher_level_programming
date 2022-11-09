@@ -13,7 +13,7 @@ if __name__ == "__main__":
                          user=user, passwd=passwd, db=datab)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
     results = cur.fetchall()
 
     for result in results:
