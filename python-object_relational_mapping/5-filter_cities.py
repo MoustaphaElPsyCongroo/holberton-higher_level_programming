@@ -24,6 +24,8 @@ if __name__ == "__main__":
     i = 0
 
     for result in results:
+        if len(result) == 0:
+            print("")
         for col in result:
             if i == len(results) - 1:
                 print(col)
