@@ -23,9 +23,10 @@ if __name__ == "__main__":
     results = cur.fetchall()
     i = 0
 
+    if len(results) == 0:
+        print("")
+
     for result in results:
-        if len(result) == 0:
-            print("")
         for col in result:
             if i == len(results) - 1:
                 print(col)
