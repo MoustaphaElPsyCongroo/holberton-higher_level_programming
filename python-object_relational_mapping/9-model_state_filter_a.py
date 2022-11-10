@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"Prints the first State object from the database"
+"Lists all State objects that contain the letter a"
 
 from sys import argv
 from model_state import Base, State
@@ -15,8 +15,5 @@ if __name__ == "__main__":
     session = Session()
 
     query = session.query(State).order_by(State.id)
-    first = query.first()
-    if first:
-        print(f"{first.id}: {first.name}")
-    else:
-        print("Nothing")
+    for state in query.filter(State.name.like('%a%')):
+        print(f"{state.id}: {state.name}")
