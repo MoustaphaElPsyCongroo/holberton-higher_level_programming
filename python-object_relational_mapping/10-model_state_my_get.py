@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"Lists all State objects that contain the letter a"
+"Prints the State object with the name passed as argument"
 
 from sys import argv
 from model_state import Base, State

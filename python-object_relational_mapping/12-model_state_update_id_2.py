@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"Adds the State object Louisiana to the database"
+"Changes the name of a State object from the database"
 
 from sys import argv
 from model_state import Base, State
@@ -14,7 +14,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    louisiana = State(name="Louisiana")
-    session.add(louisiana)
+    states = session.query(State).order_by(State.id)
+    stateId2 = states.filter(State.id == 2).first()
+    stateId2.name = 'New Mexico'
+
     session.commit()
-    print(louisiana.id)
