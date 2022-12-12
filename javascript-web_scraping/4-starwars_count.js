@@ -6,6 +6,6 @@ request(url, (error, response, body) => {
   if (error) throw error;
 
   const films = JSON.parse(body).results;
-  const wedgeFilms = films.filter(film => film.characters.includes('https://swapi-api.hbtn.io/api/people/18/'));
+  const wedgeFilms = films.filter(film => film.characters.some(characters => characters.includes('/18')));
   console.log(wedgeFilms.length);
 });
